@@ -1,0 +1,298 @@
+:root {
+    --border-radius: 12px;
+    --text-colour: orange;
+}
+
+html {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    flex-direction: column;
+    color: orange;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    background-color: rgb(121, 10, 115);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+#game-container { 
+    border-radius: var(--border-radius);
+    box-shadow: 0px 10px 30px  black;
+}
+#questiontext{
+    display: flex;
+    text-align: start;
+    background-color: rgb(34, 34, 34);
+    min-width: 800px;
+    max-width: 60vw;
+    padding: 20px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+
+}
+.btn{
+    display: flex;
+    padding: 20px;
+    background-color: rgb(39, 39, 39);
+    flex-direction: column;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+.btn {
+    background:rgb(32, 32, 32);
+    border-radius: var(--border-radius);
+	color: inherit;
+	border: none;
+    text-align: center;
+    padding-left: 20px;
+    padding: 20px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin: 8px;
+    min-width: 98.2%;
+}
+
+.btn:hover {
+    background:rgb(44, 44, 44);
+    outline: 4px solid orange;
+}
+
+.btnbutton:focus {
+    color: rgb(44, 44, 44); ;
+    background: orange;
+}
+/* display none on top bar for now */
+
+.topbar{
+    font-size: 42px;
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    top: 30px;
+}
+
+.scoretext{
+    margin: 0px;
+}
+  
+
+#timer{
+
+}
+.placeholder{
+    min-width: 500px;
+}
+#start-btn {
+    background:rgb(32, 32, 32);
+    border-radius: var(--border-radius);
+	color: inherit;
+	border: none;
+    text-align: start;
+    padding-left: 20px;
+    padding: 20px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin: 8px;
+}
+#start-btn:hover {
+    background:rgb(44, 44, 44);
+    outline: 4px solid orange;
+}
+
+.gameOver-btn {
+    text-transform: uppercase;
+    background:rgb(32, 32, 32);
+    border-radius: var(--border-radius);
+	color: inherit;
+	border: none;
+    text-align: start;
+    padding-left: 20px;
+    padding: 20px;
+	font: inherit;
+	cursor: pointer;
+    text-align: center;
+	outline: inherit;
+    margin: 8px;
+}
+.gameOver-btn:hover {
+    background:rgb(44, 44, 44);
+    outline: 4px solid orange;
+}
+
+.playAgainGameOverBtn{
+    text-transform: uppercase;
+    background:rgb(32, 32, 32);
+    border-radius: var(--border-radius);
+	color: inherit;
+	border: none;
+    text-align: start;
+    padding-left: 20px;
+    padding: 20px;
+	font: inherit;
+	cursor: pointer;
+    text-align: center;
+	outline: inherit;
+    margin: 8px;
+
+}
+.playAgainGameOverBtn:hover {
+    background:rgb(44, 44, 44);
+    outline: 4px solid orange;
+}
+
+
+.gameOverScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameOverText{
+    margin: 4px;
+ font-weight: bold;
+ font-size: 300%;   
+}
+
+#yourScore {
+    font-weight: bold;
+}
+
+
+
+
+.hide{
+    display: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    min-height: 100px;
+    min-width: 680px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+}
+
+.enterName {
+    text-align: center;
+}
+
+.form button {
+    text-align: center;
+}
+
+.inputsection{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
+.clearbtncontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.playAgain {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.finalButtons{
+    display: flex;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#submitBtn {
+    background:rgb(32, 32, 32);
+    border-radius: var(--border-radius);
+	color: inherit;
+	border: none;
+    text-align: center;
+    padding: 20px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin: 8px;
+    
+}
+
+#submitBtn:hover {
+    background:rgb(44, 44, 44);
+    outline: 4px solid orange;
+}
+
+li{
+    text-align: ce;
+    list-style: none;
+}
+
+.main-div {
+  
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 00px;
+}
+.main-div button {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(60, 60, 224);
+    color: white;
+    text-transform: uppercase;
+    flex: 0 0 100%;
+}
+/* -------------------------------------------------   */
+.my-list{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.mainWrapper {
+    min-width: 1600px;
+    border: solid 20px green;
+    display: flex;
+    background-color: orange;
+}
+
+.mainBox {
+    background-color: red;
+}
+
+.cardBox {
+    background-color: green;
+}
+
+.searchBox {
+    background-color:  blue;
+}
+
+/* -------------------------------------------------   */
