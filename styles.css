@@ -154,18 +154,6 @@ li{
     justify-content: center;
     background-color: orange;
 }
-.mainCard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    font-weight: bold;
-    background-color: orange;
-    border: white solid 4px;
-    min-width: 400px;
-    min-height: 300px;
-  
-}
 
 .mainBox {
     padding: 20px;
@@ -191,7 +179,21 @@ li{
 
 
 #clearBtn{
-
+    
 }
 
 /* -------------------------------------------------   */
+
+.searchSection { 
+    outline: magenta 10px solid;
+    min-width: 600px;
+}
+
+.mainCard{
+background-color: rgb(61, 171, 245);
+min-width: 400px;
+min-height:auto;
+padding-left: 20px;
+border: magenta 10px solid;
+
+}
