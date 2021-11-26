@@ -7,22 +7,32 @@
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <title>WEATHER APP</title>
     </head>
     <body>
-        <div class="searchSection">
-            <form class="form">
-                <input type="text" name="" id="userInput" placeholder="Manchester">
-                <button type="submit" class="" id="submitBtn">SUBMIT</button>
-            </form>
-        </div>
+        <div class="masterContainer">
+            <div class="searchSection">
+                <form class="form">
+                    <input type="text" name="" id="userInput" placeholder="search a city...">
+                    <button onclick=getUserInput() type="submit" class="" id="submitBtn">Search</button>
+                </form>
+                    <div class="buttonList" id="buttonList">
+                        <span class="cityinner"> </span><span class="currentDate"> </span>
+                        <!-- target -->
+                    </div>
+                    <button onclick="localClear() "id="clearLocal">Clear Search</button>
+            </div>
 
 
-    <div class="mainCard">
-        <p class="cityName"></p>
-        <p class="cityTemp"></p>
-        <p class="cityWind"></p>
-        <p class="cityHumidity"></p>
+            <div class="mainCard">
+                <p class="cityName"></p>
+                <p class="cityCountry" id="smallerMain"></p>
+                <p class="cityTemp" id="smallerMain"></p>
+                <p class="cityWind" id="smallerMain"></p>
+                <p class="cityHumidity" id="smallerMain"></p>
+            
+            </div>
     </div>
 
 <script src="scripts.js"></script>

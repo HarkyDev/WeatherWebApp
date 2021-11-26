@@ -1,6 +1,6 @@
 // var score = localStorage.getItem('score');
-// var userInput = document.getElementById("userInput")
-// var submitBtn = document.getElementById("submitBtn")
+var userInput = document.getElementById("userInput")
+var submitBtn = document.getElementById("submitBtn")
 // var clearBtn = document.getElementById("clearBtn")
 // var playAgain = document.getElementById("playAgain")
 // let records = JSON.parse(localStorage.getItem('records'));
@@ -61,6 +61,9 @@
 //   window.location.reload();
 // })
 
+//--MOMENT--//////////////////////////////
+var m = moment()
+var today = (m.format('MM/D/YY'))
 
 //---API---///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -72,7 +75,7 @@ var requestUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=e2201392';
 var responseText = document.getElementById('response-text');
 
 
-var cityName = "manchester"
+cityName = "manchester"
 
 var CityRequest = function(){
 
@@ -88,19 +91,16 @@ var CityRequest = function(){
           console.log("RAW DATA" , data);
           //City Name
           console.log("City: " , data.name)
-          document.querySelector('.cityName').append("CITY: "+ data.name);
+          document.querySelector('.cityName').textContent = ("CITY: "+ data.name + " " +  today);
           //City Temp
           console.log("Weather: " , data.main.temp + "°C")
-          document.querySelector('.cityTemp').append("TEMP: " + data.main.temp + "°C");
+          document.querySelector('.cityTemp').textContent = ("TEMP: " + data.main.temp + "°C");
           // City Wind
           console.log("Wind:   " , data.wind.speed +  " MPH")
-          document.querySelector('.cityWind').append("Wind:   " , data.wind.speed +  " MPH");
+          document.querySelector('.cityWind').textContent = ("Wind:   " + data.wind.speed +  " MPH");
           // City humidity
           console.log("Weather: " , data.main.humidity) 
-          document.querySelector('.cityHumidity').append("Weather: " , data.main.humidity , "%");
-          
-          
-            
+          document.querySelector('.cityHumidity').textContent = ("Humidity: " +  data.main.humidity + "%");   
       }
           
 
@@ -111,3 +111,58 @@ var CityRequest = function(){
 
 console.log("running CityRequest function")
 CityRequest()
+
+
+
+
+// console.log(document.querySelector('#userInput').value)
+
+var getUserInput = function(){
+  event.preventDefault();
+  console.log("code is passing")
+  cityName = document.querySelector('#userInput').value
+  console.log(cityName)
+}
+
+function save(){
+  console.log("save is running")
+  var new_data = document.getElementById('userInput').value
+  if (localStorage.getItem("pastCities") == null){
+    localStorage.setItem('pastCities','[]');
+    }
+  
+    var old_data = JSON.parse(localStorage.getItem('pastCities'));
+    old_data.push(new_data);
+
+    localStorage.setItem('pastCities' , JSON.stringify(old_data));
+    console.log(old_data)
+
+    for (var i = 0; i < old_data.length; i++){
+      let btn = document.createElement("button");
+      btn.innerHTML = old_data[i];
+      document.getElementById("buttonList").appendChild(btn);
+    }
+}
+
+
+
+
+
+
+
+
+var masterSearch = function(){
+  save()
+  getUserInput()
+  CityRequest()
+}
+
+
+
+document.querySelector('#submitBtn').addEventListener('click', masterSearch);
+
+var localClear = function(){
+  console.log("clear local")
+  localStorage.clear()
+  location.reload();
+}
