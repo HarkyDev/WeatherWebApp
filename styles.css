@@ -4,11 +4,11 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0px;
 }
 
 body {
     flex-direction: column;
-
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -62,7 +62,7 @@ button {
     margin-bottom: 5px;
 }
 #submitBtn:hover {
-    background-color: #444444;
+    background-color: rgb(7, 185, 7);
     transition: 500ms;
     
 }
@@ -176,6 +176,7 @@ font-size: 40px;
 color: aliceblue;
 min-height:auto;
 padding-left: 20px;
+padding-top: 10px;
 border-top-left-radius: 12px;
 border-top-right-radius: 96px;
 }
@@ -252,4 +253,61 @@ border-top-right-radius: 96px;
 
 .cityTemp {
     margin-top: -30px;
+}
+
+
+.lowUv{
+background-color:  yellow;
+}
+.medUv{
+    background-color:  yellow;
+
+}
+.highUv{
+
+    background-color:  yellow;
+}
+
+
+.navBar{
+    font-weight: bold;
+    letter-spacing: 24px;
+    min-width: 100vw;
+    text-align: center;
+    margin: 0px;
+    position: absolute;
+    top: 40px;
+    
+    
+    
+}
+.navText{
+    color: #DA0037;
+    font-weight: bold;
+    font-size: 30px;
+    font-size: 70px;
+    letter-spacing: 16px;
+    
+}
+
+.dailyCardContainer {
+    display: flex;
+    color: white;
+    background-color: green;
+    margin-top: 60px;
+    background: linear-gradient(180deg, rgba(218,0,55,1) 40%, rgba(23,23,23,1) 100%);
+    padding: 30px;
+    justify-content: space-evenly;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 96px;
+}
+
+.daily1 {
+    background-color: #0e0e0e;
+    border-radius: 12px;
+    margin-right: 20px;
+    padding: 16px 32px;
+    outline: white 4px solid;
+    margin-top: 24px;
+    
 }

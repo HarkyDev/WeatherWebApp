@@ -93,25 +93,32 @@ function save(){
 
 
   for (i = old_data.length-1; i >= 0 ; i--){
+      let historyBtn = document.querySelectorAll(".historyBtn");
       let btn = document.createElement("button");
       btn.classList.add("historyBtn")
       btn.innerHTML = old_data[i];
-      console.log(old_data)
       btnList.appendChild(btn); 
+      btn.addEventListener("click", pastSearch);
 
 }
     var historyBtn = document.querySelector(".historyBtn")
-    historyBtn.addEventListener("click", pastsearch)
+    historyBtn.addEventListener("click", pastSearch)
   }
   
   
-  var pastsearch = function(){
-    cityName = document.querySelector('.historyBtn').innerHTML
-    console.log("past button works  " , cityName)
+  var pastSearch = function(event){
+    
+    console.log(event.target.innerHTML)
+    
+    cityName = event.target.innerHTML
+    // cityName = historyBtn.innerHTML
+    
+    // console.log("---------------------------------------------------------------------------------------------------------------------------------")
+    // console.log("past button works  " , cityName)
+    // console.log("---------------------------------------------------------------------------------------------------------------------------------")
+    
     CityRequest(cityName)  
   }
-  
-
 
   
   
@@ -137,6 +144,7 @@ var localClear = function(){
 // e2201392
 
 
+
 function oneCall (lat,lon){
   fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`
@@ -158,12 +166,14 @@ function oneCall (lat,lon){
             icon.setAttribute("src",
             `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
           );
-       
+
+
         
       }
       
       
       
       )}
+
 
 
