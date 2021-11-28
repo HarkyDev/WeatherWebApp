@@ -1,7 +1,7 @@
 // var score = localStorage.getItem('score');
 var userInput = document.getElementById("userInput")
 var submitBtn = document.getElementById("submitBtn")
-
+var weatherIcon = document.querySelector(".weatherIcon")
 //--MOMENT--//////////////////////////////
 var m = moment()
 var today = (m.format('MM/D/YY'))
@@ -98,6 +98,7 @@ function save(){
       btn.innerHTML = old_data[i];
       console.log(old_data)
       btnList.appendChild(btn); 
+
 }
     var historyBtn = document.querySelector(".historyBtn")
     historyBtn.addEventListener("click", pastsearch)
@@ -150,7 +151,14 @@ function oneCall (lat,lon){
         // cityUVI
         document.querySelector('.cityUVI').textContent = ("UV Index: " +  data.current.uvi);   
         //icon
-        
+        var icon = document.createElement("img");
+        document.querySelector(".weatherIcon").removeChild(
+          document.querySelector(".weatherIcon").getElementsByTagName("img")[0]);
+            weatherIcon.appendChild(icon)
+            icon.setAttribute("src",
+            `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+          );
+       
         
       }
       
@@ -158,6 +166,4 @@ function oneCall (lat,lon){
       
       )}
 
-var iconFunction = function(){
-  
-}
+

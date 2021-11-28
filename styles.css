@@ -244,3 +244,12 @@ border-top-right-radius: 96px;
     transition: 500ms;
     background-color: #DA0037;
 }
+
+.weatherIcon {
+    margin: 0px;
+    padding: 0px;
+}
+
+.cityTemp {
+    margin-top: -30px;
+}
