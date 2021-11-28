@@ -191,24 +191,6 @@ border-top-right-radius: 96px;
     align-items: center;
     border-radius: 12px;
 }
-.buttonList button {
-    background-color: #444444;
-    min-width: 300px;
-    max-width: 300px;
-    margin: 8px;
-    min-height: 30px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    text-transform: capitalize;
-    color: white;  
-}
-
-.buttonList button:hover {
-    transform: scale(1.1);
-    transition: 500ms;
-    background-color: #DA0037;
-}
 
 .masterContainer {
     background-color: #171717;
@@ -241,4 +223,24 @@ border-top-right-radius: 96px;
     transform: scale(1.1);
     transition: 400ms;
     background-color: rgb(7, 185, 7);
+}
+
+
+.historyBtn  {
+    background-color: #444444;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 8px;
+    min-height: 30px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: white;  
+}
+
+.historyBtn:hover {
+    transform: scale(1.1);
+    transition: 500ms;
+    background-color: #DA0037;
 }
