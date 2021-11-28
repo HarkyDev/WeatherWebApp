@@ -18,6 +18,7 @@ var responseText = document.getElementById('response-text');
 
 cityName = "manchester"
 
+
 var CityRequest = function(){
   
   fetch(
@@ -166,14 +167,61 @@ function oneCall (lat,lon){
             icon.setAttribute("src",
             `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
           );
+          
+          console.log("temp---------------------------" + data.daily[0].wind_speed + "mph")
+          
+            /////////Day-1//////////////////////////////////////////
+            
+            document.getElementById("day1").textContent = today;
+            document.getElementById('dailyTemp1').textContent = ("TEMP: " + data.daily[0].temp.day + "°C");
+            document.getElementById('dailyWind1').textContent = ("WIND: " + data.daily[0].wind_speed + "mph");
+            document.getElementById('dailyHumidity1').textContent = ("HUMIDITY: " + data.daily[0].humidity + "%");
+            ////////////////////////////////////////////////////////////
+            
+            /////////Day-1//////////////////////////////////////////
+            document.getElementById("day2").textContent = today;
+            document.getElementById('dailyTemp2').textContent = ("TEMP: " + data.daily[1].temp.day + "°C");
+            document.getElementById('dailyWind2').textContent = ("WIND: " + data.daily[1].wind_speed + "mph");
+            document.getElementById('dailyHumidity2').textContent = ("HUMIDITY: " + data.daily[1].humidity + "%");
+            ////////////////////////////////////////////////////////////
 
+             /////////Day-1//////////////////////////////////////////
+             document.getElementById("day3").textContent = today;
+             document.getElementById('dailyTemp3').textContent = ("TEMP: " + data.daily[2].temp.day + "°C");
+             document.getElementById('dailyWind3').textContent = ("WIND: " + data.daily[2].wind_speed + "mph");
+             document.getElementById('dailyHumidity3').textContent = ("HUMIDITY: " + data.daily[2].humidity + "%");
+             ////////////////////////////////////////////////////////////
 
+             /////////Day-1//////////////////////////////////////////
+             document.getElementById("day4").textContent = today;
+             document.getElementById('dailyTemp4').textContent = ("TEMP: " + data.daily[3].temp.day + "°C");
+             document.getElementById('dailyWind4').textContent = ("WIND: " + data.daily[3].wind_speed + "mph");
+             document.getElementById('dailyHumidity4').textContent = ("HUMIDITY: " + data.daily[3].humidity + "%");
+             ////////////////////////////////////////////////////////////
+
+              /////////Day-1//////////////////////////////////////////
+              document.getElementById("day5").textContent = today;
+              document.getElementById('dailyTemp5').textContent = ("TEMP: " + data.daily[4].temp.day + "°C");
+              document.getElementById('dailyWind5').textContent = ("WIND: " + data.daily[4].wind_speed + "mph");
+              document.getElementById('dailyHumidity5').textContent = ("HUMIDITY: " + data.daily[4].humidity + "%");
+              ////////////////////////////////////////////////////////////
+          
+        }
         
-      }
-      
-      
-      
-      )}
+        
+        
+        )}
+        
+        
+        console.log(moment().add(7, 'days'))
+        console.log(moment().format('MM/D/YY'))
+        // var oneDay = today.add(5, 'days')
+        // console.log(oneDay)
 
+        var startDate = today
+        var new_date =   moment().add(7, 'days')
+        var newer_date = new_date.format('MM/D/YY')
+        console.log("NEW DATE " + new_date)
+        console.log("NEWER DATE " + newer_date)
 
-
+        moment().add(7, 'days')
