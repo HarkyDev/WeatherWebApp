@@ -203,6 +203,16 @@ border-top-right-radius: 96px;
     font-size: 30px;
 }
 
+#uvIndex{
+    background-color: rgb(235, 0, 0,0);
+    transition: 500ms;
+    padding: 20px;
+    font-size: 30px;
+    max-width: 250px;
+    border-radius: 12px;
+    margin-top: -20px;
+}
+
 .cityName {
     margin-bottom: 0px;
 }
@@ -255,19 +265,19 @@ border-top-right-radius: 96px;
     margin-top: -30px;
 }
 
-
+/* UV GUIDE */
 .lowUv{
-background-color:  yellow;
+    background-color:  yellow;
 }
 .medUv{
     background-color:  yellow;
-
+    
 }
 .highUv{
 
     background-color:  yellow;
 }
-
+/* UV GUIDE */
 
 .navBar{
     font-weight: bold;

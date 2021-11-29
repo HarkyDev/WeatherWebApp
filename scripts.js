@@ -2,6 +2,7 @@
 var userInput = document.getElementById("userInput")
 var submitBtn = document.getElementById("submitBtn")
 var weatherIcon = document.querySelector(".weatherIcon")
+
 //--MOMENT--//////////////////////////////
 var m = moment()
 var today = (m.format('MM/D/YY'))
@@ -9,7 +10,9 @@ var today = (m.format('MM/D/YY'))
 //---API---///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // var  old_data = []
-var apiKey = "a8116bf5225672746c89d4065105aff0"
+// var apiKey = "a8116bf5225672746c89d4065105aff0" //my key but banned for too many api requests
+var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de" //alistairs key
+
 const ApiLink = "http://www.omdbapi.com/?i=tt3896198&apikey=e2201392"
 
 var requestUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=e2201392';
@@ -22,7 +25,7 @@ cityName = "manchester"
 var CityRequest = function(){
   
   fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=a8116bf5225672746c89d4065105aff0`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
       
       )
       .then(function (response) {
@@ -158,7 +161,7 @@ function oneCall (lat,lon){
         // RAW ARRAY
         console.log("ONE CALL" , data);
         // cityUVI
-        document.querySelector('.cityUVI').textContent = ("UV Index: " +  data.current.uvi);   
+        document.querySelector('#uvIndex').textContent = ("UV Index: " +  data.current.uvi);   
         //icon
         var icon = document.createElement("img");
         document.querySelector(".weatherIcon").removeChild(
@@ -167,40 +170,114 @@ function oneCall (lat,lon){
             icon.setAttribute("src",
             `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
           );
-          
+          ///CHANGE UV COLOUR INDEXS
+          uvDisplay = document.getElementById("uvIndex")
+          uvValue = data.current.uvi
+
+          if(uvValue > 5){
+            uvDisplay.setAttribute("style", "background-color: rgb(235, 0, 0);")
+          }
+
+          if(uvValue == 0){
+            uvDisplay.setAttribute("style", "background-color: green;")
+          }
+
+          if(uvValue >= 1 && uvValue <= 4.99){
+            uvDisplay.setAttribute("style", "background-color: orange;")
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           console.log("temp---------------------------" + data.daily[0].wind_speed + "mph")
+          ////day icons
+          var miniIconOne = document.querySelector(".icon1")
+          var miniIconTwo = document.querySelector(".icon2")
           
+          
+          var icon = document.createElement("img");
+
+          
+         
+          // document.querySelector(".icon1").removeChild(
+          //   document.querySelector(".icon1").getElementsByTagName("img")[0]);
+          //   miniIconOne.appendChild(icon)
+          //     icon.setAttribute("src",
+          //     `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+          //   );
+
+          //   document.querySelector(".icon2").removeChild(
+          //     document.querySelector(".icon2").getElementsByTagName("img")[0]);
+          //     miniIconTwo.appendChild(icon)
+          //       icon.setAttribute("src",
+          //       `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+          //     );
+
+
+
+        
+      
+
+
+
+
+
+
+
+
             /////////Day-1//////////////////////////////////////////
-            
-            document.getElementById("day1").textContent = today;
-            document.getElementById('dailyTemp1').textContent = ("TEMP: " + data.daily[0].temp.day + "°C");
-            document.getElementById('dailyWind1').textContent = ("WIND: " + data.daily[0].wind_speed + "mph");
-            document.getElementById('dailyHumidity1').textContent = ("HUMIDITY: " + data.daily[0].humidity + "%");
+            var dtCode = data.daily[1].dt;
+            var time = moment.unix(dtCode).format("D/M/YY");
+            document.getElementById("day1").innerHTML =  time;
+            document.getElementById('dailyTemp1').textContent = ("TEMP: " + data.daily[1].temp.day + "°C");
+            document.getElementById('dailyWind1').textContent = ("WIND: " + data.daily[1].wind_speed + "mph");
+            document.getElementById('dailyHumidity1').textContent = ("HUMIDITY: " + data.daily[1].humidity + "%");
             ////////////////////////////////////////////////////////////
             
-            /////////Day-1//////////////////////////////////////////
-            document.getElementById("day2").textContent = today;
-            document.getElementById('dailyTemp2').textContent = ("TEMP: " + data.daily[1].temp.day + "°C");
-            document.getElementById('dailyWind2').textContent = ("WIND: " + data.daily[1].wind_speed + "mph");
-            document.getElementById('dailyHumidity2').textContent = ("HUMIDITY: " + data.daily[1].humidity + "%");
+            /////////Day-2//////////////////////////////////////////
+            var dtCode = data.daily[2].dt;
+            var time = moment.unix(dtCode).format("D/M/YY");
+            document.getElementById("day2").innerHTML =  time;
+            document.getElementById('dailyTemp2').textContent = ("TEMP: " + data.daily[2].temp.day + "°C");
+            document.getElementById('dailyWind2').textContent = ("WIND: " + data.daily[2].wind_speed + "mph");
+            document.getElementById('dailyHumidity2').textContent = ("HUMIDITY: " + data.daily[2].humidity + "%");
             ////////////////////////////////////////////////////////////
 
-             /////////Day-1//////////////////////////////////////////
-             document.getElementById("day3").textContent = today;
-             document.getElementById('dailyTemp3').textContent = ("TEMP: " + data.daily[2].temp.day + "°C");
-             document.getElementById('dailyWind3').textContent = ("WIND: " + data.daily[2].wind_speed + "mph");
-             document.getElementById('dailyHumidity3').textContent = ("HUMIDITY: " + data.daily[2].humidity + "%");
+             /////////Day-3//////////////////////////////////////////
+             var dtCode = data.daily[3].dt;
+            var time = moment.unix(dtCode).format("D/M/YY");
+            document.getElementById("day3").innerHTML =  time;
+
+             document.getElementById('dailyTemp3').textContent = ("TEMP: " + data.daily[3].temp.day + "°C");
+             document.getElementById('dailyWind3').textContent = ("WIND: " + data.daily[3].wind_speed + "mph");
+             document.getElementById('dailyHumidity3').textContent = ("HUMIDITY: " + data.daily[3].humidity + "%");
              ////////////////////////////////////////////////////////////
 
-             /////////Day-1//////////////////////////////////////////
-             document.getElementById("day4").textContent = today;
-             document.getElementById('dailyTemp4').textContent = ("TEMP: " + data.daily[3].temp.day + "°C");
-             document.getElementById('dailyWind4').textContent = ("WIND: " + data.daily[3].wind_speed + "mph");
+             /////////Day-4//////////////////////////////////////////
+             var dtCode = data.daily[4].dt;
+             var time = moment.unix(dtCode).format("D/M/YY");
+             document.getElementById("day4").innerHTML =  time;
+             
+             document.getElementById('dailyTemp4').textContent = ("TEMP: " + data.daily[4].temp.day + "°C");
+             document.getElementById('dailyWind4').textContent = ("WIND: " + data.daily[4].wind_speed + "mph");
              document.getElementById('dailyHumidity4').textContent = ("HUMIDITY: " + data.daily[3].humidity + "%");
              ////////////////////////////////////////////////////////////
 
-              /////////Day-1//////////////////////////////////////////
-              document.getElementById("day5").textContent = today;
+              /////////Day-5//////////////////////////////////////////
+              var dtCode = data.daily[5].dt;
+              var time = moment.unix(dtCode).format("D/M/YY");
+              document.getElementById("day5").innerHTML =  time;
+
               document.getElementById('dailyTemp5').textContent = ("TEMP: " + data.daily[4].temp.day + "°C");
               document.getElementById('dailyWind5').textContent = ("WIND: " + data.daily[4].wind_speed + "mph");
               document.getElementById('dailyHumidity5').textContent = ("HUMIDITY: " + data.daily[4].humidity + "%");
@@ -225,3 +302,7 @@ function oneCall (lat,lon){
         console.log("NEWER DATE " + newer_date)
 
         moment().add(7, 'days')
+
+
+
+        //TODO: mini icons will not render without deleting the previous icon
