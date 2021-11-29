@@ -9,17 +9,19 @@ var today = (m.format('MM/D/YY'))
 
 //---API---///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// var  old_data = []
+var  old_data = []
 // var apiKey = "a8116bf5225672746c89d4065105aff0" //my key but banned for too many api requests
-var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de" //alistairs key
+// var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de" //alistairs key
+var apiKey = "457730f865ddd53fd55ffb888890e81b" //third key in use, had 3 request timeouts
 
-const ApiLink = "http://www.omdbapi.com/?i=tt3896198&apikey=e2201392"
 
-var requestUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=e2201392';
+// const ApiLink = "http://www.omdbapi.com/?i=tt3896198&apikey=e2201392"
+
+// var requestUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=e2201392';
 var responseText = document.getElementById('response-text');
 
 
-cityName = "manchester"
+cityName = ""
 
 
 var CityRequest = function(){
@@ -32,6 +34,11 @@ var CityRequest = function(){
         return response.json();
       })
       .then(function (data) {
+        
+        if (data.name == undefined) {
+        document.querySelector('.cityName').textContent = ("SEARCH FOR A CITY");
+        }
+        else{
         // RAW ARRAY
         console.log("RAW DATA" , data);
         //City Name
@@ -47,11 +54,8 @@ var CityRequest = function(){
           console.log("latitude: " + lat)
           var lon = data.coord.lon
           console.log("longitude: " + lon)
-
           oneCall(lat,lon)
-        
-
-
+        }
 
 
         }
@@ -61,8 +65,8 @@ var CityRequest = function(){
         )}
         //temp  wind  humidity  uv index
         
+        CityRequest()
         
-      CityRequest()
       
       
             //temp  wind  humidity  uv index

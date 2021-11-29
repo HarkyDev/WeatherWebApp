@@ -178,6 +178,7 @@ padding-left: 20px;
 padding-top: 10px;
 border-top-left-radius: 12px;
 border-top-right-radius: 96px;
+padding-bottom: 20px;
 }
 
 .masterContainer {
@@ -204,7 +205,9 @@ border-top-right-radius: 96px;
 
 #uvIndex{
     background-color: rgb(235, 0, 0,0);
-    transition: 500ms;
+    /* adds animation to colour change */
+    -webkit-transition: all 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 1.5s cubic-bezier(0.77, 0, 0.175, 1);
     padding: 10px;
     font-size: 30px;
     max-width: 250px;
