@@ -204,28 +204,78 @@ function oneCall (lat,lon){
           var miniIconOne = document.querySelector(".icon1")
           var miniIconTwo = document.querySelector(".icon2")
           
-          
-          var icon = document.createElement("img");
-
-          
-         
-          // document.querySelector(".icon1").removeChild(
-          //   document.querySelector(".icon1").getElementsByTagName("img")[0]);
+          // var icon = document.createElement("img");
           //   miniIconOne.appendChild(icon)
           //     icon.setAttribute("src",
-          //     `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+          //     `https://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}.png`
           //   );
+          
+          
+          
+          function icon1() {
+            var icon = document.createElement("img");
+            icon.setAttribute(
+              "src",
+              `https://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}.png`
+            );
+            document.querySelector(".icon1").removeChild(
+            document.querySelector(".icon1").getElementsByTagName("img")[0]);
+            document.querySelector(".icon1").appendChild(icon);
+            
+          }
+          function icon2() {
+            var icon = document.createElement("img");
+            icon.setAttribute(
+              "src",
+              `https://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}.png`
+            );
+            document.querySelector(".icon2").removeChild(
+            document.querySelector(".icon2").getElementsByTagName("img")[0]);
+            document.querySelector(".icon2").appendChild(icon);
+            
+          }
+          function icon3() {
+            var icon = document.createElement("img");
+            icon.setAttribute(
+              "src",
+              `https://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}.png`
+            );
+            document.querySelector(".icon3").removeChild(
+            document.querySelector(".icon3").getElementsByTagName("img")[0]);
+            document.querySelector(".icon3").appendChild(icon);
+            
+          }
+          function icon4() {
+            var icon = document.createElement("img");
+            icon.setAttribute(
+              "src",
+              `https://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}.png`
+            );
+            document.querySelector(".icon4").removeChild(
+            document.querySelector(".icon4").getElementsByTagName("img")[0]);
+            document.querySelector(".icon4").appendChild(icon);
+            
+          }
+          function icon5() {
+            var icon = document.createElement("img");
+            icon.setAttribute(
+              "src",
+              `https://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}.png`
+            );
+            document.querySelector(".icon5").removeChild(
+            document.querySelector(".icon5").getElementsByTagName("img")[0]);
+            document.querySelector(".icon5").appendChild(icon);
+            
+          }
+          icon1()
+          icon2()
+          icon3()
+          icon4()
+          icon5()
 
-          //   document.querySelector(".icon2").removeChild(
-          //     document.querySelector(".icon2").getElementsByTagName("img")[0]);
-          //     miniIconTwo.appendChild(icon)
-          //       icon.setAttribute("src",
-          //       `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
-          //     );
+          
 
 
-
-        
       
 
 
